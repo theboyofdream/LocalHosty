@@ -4,6 +4,7 @@ import FolderAddSvg from './folder-add-fill.svg';
 import PauseFillSvg from './pause-fill.svg';
 import PlayFillSvg from './play-fill.svg';
 import Settings4FillSvg from './settings4-fill.svg';
+import ShareForwardFillSvg from './share-forward-fill.svg';
 
 const iconSource = {
   'arrow-left': ArrowLeftLineSvg,
@@ -11,10 +12,12 @@ const iconSource = {
   'play': PlayFillSvg,
   'pause': PauseFillSvg,
   'setting': Settings4FillSvg,
+  'share': ShareForwardFillSvg
 }
 
+export type IconSource = keyof typeof iconSource;
 type IconProps = {
-  source: keyof typeof iconSource;
+  source: IconSource;
   size?: number;
   color?: string | ColorValue
 }
