@@ -1,5 +1,5 @@
 const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
-const {assetExts, sourceExts} = defaultConfig.resolver;
+const {assetExts, sourceExts} = getDefaultConfig(__dirname).resolver;
 /**
  * Metro configuration
  * https://facebook.github.io/metro/docs/configuration
