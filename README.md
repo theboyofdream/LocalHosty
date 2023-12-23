@@ -31,6 +31,9 @@ yarn android
 | react-native-svg | svg | [link](https://github.com/software-mansion/react-native-svg) |
 | react-native-svg-transformer | svg | [link](https://github.com/kristerkari/react-native-svg-transformer) |
 | remix icon | icons | [link](https://remixicon.com/) |
+| remix icon | icons | [link](https://remixicon.com/) |
+| remix icon | icons | [link](https://remixicon.com/) |
+
 
 ### Now what?
 

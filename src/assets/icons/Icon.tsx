@@ -1,4 +1,5 @@
 import { ColorValue } from 'react-native';
+import { useTheme } from 'theme';
 import ArrowLeftLineSvg from './arrow-left-line.svg';
 import FolderAddSvg from './folder-add-fill.svg';
 import PauseFillSvg from './pause-fill.svg';
@@ -22,14 +23,18 @@ type IconProps = {
   color?: string | ColorValue
 }
 
-export function Icon({
-  source,
-  size = 28,
-  color = 'black'
-}: IconProps) {
+export function Icon({ source, ...props }: IconProps) {
+  const
+    { fontSize, colors } = useTheme(),
+    IconComponent = iconSource[source],
+    size = props.size ?? fontSize.lg,
+    color = props.color ?? colors.text
 
-  const IconComponent = iconSource[source]
   return (
-    <IconComponent width={size} height={size} color={color} />
+    <IconComponent
+      width={size}
+      height={size}
+      color={color}
+    />
   )
 }

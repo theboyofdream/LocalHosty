@@ -1,0 +1,85 @@
+/* ---------------- Light Theme Colors ---------------- */
+
+/* Background colors */
+/* ------------------ */
+body {
+  background-color: #fff;
+  /* Main background */
+}
+
+.header {
+  background-color: #f5f6f7;
+  /* Header background */
+}
+
+/* Text colors */
+/* ----------- */
+.text-primary {
+  color: #181a1b;
+  /* Primary text */
+}
+
+.text-secondary {
+  color: #6a737d;
+  /* Secondary text */
+}
+
+/* Accent colors */
+/* ------------- */
+.accent-blue {
+  color: #007bff;
+  /* Blue accent */
+}
+
+.accent-green {
+  color: #28a745;
+  /* Green accent */
+}
+
+.accent-yellow {
+  color: #ffc107;
+  /* Yellow accent */
+}
+
+/* ---------------- Dark Theme Colors ---------------- */
+
+/* Background colors */
+/* ------------------ */
+body.dark-theme {
+  background-color: #181a1b;
+  /* Main background */
+}
+
+.header.dark-theme {
+  background-color: #212529;
+  /* Header background */
+}
+
+/* Text colors */
+/* ----------- */
+.text-primary.dark-theme {
+  color: #fff;
+  /* Primary text */
+}
+
+.text-secondary.dark-theme {
+  color: #a0aec0;
+  /* Secondary text */
+}
+
+/* Accent colors */
+/* ------------- */
+.accent-blue.dark-theme {
+  color: #40a9ff;
+  /* Blue accent */
+}
+
+.accent-green.dark-theme {
+  color: #55e565;
+  /* Green accent */
+}
+
+.accent-yellow.dark-theme {
+  color: #ffd54f;
+  /* Yellow accent */
+}

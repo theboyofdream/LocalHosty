@@ -1,5 +1,5 @@
+import { Icon, IconSource } from "assets";
 import { Text, TouchableOpacity, View, ViewStyle } from "react-native";
-import { Icon, IconSource } from "../assets";
 
 type ButtonProps = {
   icon?: IconSource,
@@ -13,7 +13,7 @@ export function Button(props: ButtonProps) {
     <TouchableOpacity style={[$button, props.reverse && $reverse]} onPress={props.onPress}>
       {props.icon &&
         <View style={$icon}>
-          <Icon source={props.icon} color={'white'} />
+          <Icon source={props.icon} />
         </View>
       }
       <Text>{props.text || ''}</Text>
@@ -32,7 +32,7 @@ const
     flexDirection: 'row-reverse'
   },
   $icon: ViewStyle = {
-    padding: 8 * 1.5,
+    padding: 8,
     borderRadius: 100,
     backgroundColor: '#ffffff30'
   }

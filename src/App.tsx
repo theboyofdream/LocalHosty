@@ -1,71 +1,34 @@
-import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  ViewStyle
-} from 'react-native';
-import { Icon } from './assets';
-import ArrowLeftLineSvg from './assets/icons/arrow-left-line.svg';
-import { Button } from './components';
+import 'react-native-gesture-handler';
 
-export default function App(): React.JSX.Element {
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import { ChooseScreen, HomeScreen } from 'screens';
+import { GlobalStateProvider } from './GlobalStateProvider';
 
-  const [serverOn, setServerState] = useState(false)
+type StackParams = {
+  home: undefined;
+  choose: undefined;
+}
+const Stack = createStackNavigator<StackParams>();
 
-
+export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      {/* <ScrollView contentInsetAdjustmentBehavior="automatic"> */}
-      <View>
-        <ArrowLeftLineSvg width={28} height={28} color={'black'} />
-
-        <Icon source='play' />
-      </View>
-      <Text>BODY</Text>
-      <Text>BODY</Text>
-      <Text>BODY</Text>
-      <View style={$footer}>
-        <Button
-          text={`Server ${serverOn ? 'On' : 'Off'}`}
-          icon={serverOn ? 'play' : 'pause'}
-          onPress={() => setServerState(!serverOn)}
-          reverse
-        />
-
-        <Button
-          // text="add folders & files"
-          icon='folder-plus'
-        />
-        <Button
-          // text="Settings"
-          icon='setting'
-        />
-        <Button
-          // text="Share"
-          icon='share'
-        />
-      </View>
-      {/* </ScrollView> */}
-    </SafeAreaView>
+    <NavigationContainer>
+      <GlobalStateProvider>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='home' component={HomeScreen} />
+          <Stack.Screen name='choose' component={ChooseScreen} />
+        </Stack.Navigator>
+      </GlobalStateProvider>
+    </NavigationContainer>
   );
 }
 
-const $row: ViewStyle = {
-  flexDirection: 'row',
-  gap: 8
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList
+      extends StackParams { }
+  }
 }
-const $footer: ViewStyle = {
-  ...$row,
-  position: 'absolute',
-  bottom: 0,
-  width: '100%',
-  minHeight: 60,
-  height: '10%',
-  maxHeight: 100,
-  backgroundColor: 'red',
-  justifyContent: 'space-around',
-  alignItems: 'center',
-  borderTopLeftRadius: 15,
-  borderTopRightRadius: 15,
-}
+
