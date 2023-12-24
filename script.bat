@@ -6,10 +6,17 @@ if "%~1"=="save" (
   git push --all
 )
 
+
 if "%~1"=="restore" (
   git pull
   yarn install
 )
+
+
+
+:: Cleans the android gradle
+::
+:: script clean
 
 if "%~1"=="clean" (
   cd "android"
@@ -17,15 +24,34 @@ if "%~1"=="clean" (
   cd "../"
 )
 
-if "%~1"=="build-apk" (
+
+:: Builds the release version of android app (.apk file)
+::
+:: script build [-c] [-i]
+::
+:: -c cleans the android gradle
+:: -i install the apk in connected devices
+
+if "%~1"=="build" (
   cd "android"
-  gradlew clean
-  REM "Building release apk"
+
+  for %%a in (%*) do (
+    if "%%a"=="-c" (
+      gradlew clean
+    )
+  )
+
+  :: "Build release apk"
   gradlew assembleRelease
   cd "../"
 
   copy "android/app/build/outputs/apk/release\app-release.apk" "app-release.apk"
-  rename "app-release.apk" "localhosty.apk"
+  del "dhwajdialer.apk"
+  rename "app-release.apk" "dhwajdialer.apk"
 
-  @REM adb install "localhosty.apk"
+  for %%a in (%*) do (
+    if "%%a"=="-i" (
+      adb install "dhwajdialer.apk"
+    )
+  )
 )
